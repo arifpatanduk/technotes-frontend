@@ -16,7 +16,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
-            keepUnusedDataFor: 5, // 5 seconds (default: 60 seconds)
+            // keepUnusedDataFor: 5, // 5 seconds (default: 60 seconds)
             transformResponse: responseData => {
                 const loadedNotes = responseData.map( note => {
                     note.id = note._id
