@@ -8,7 +8,11 @@ const NotesList = () => {
     isSuccess, 
     isError,
     error
-  } = useGetNotesQuery()
+  } = useGetNotesQuery(undefined, {
+    pollingInterval: 15000, // fetch every 15 seconds
+    refetchOnFocus: true, // fetch on focus
+    refetchOnMountOrArgChange: true
+  })
 
   let content
 
