@@ -10,6 +10,7 @@ import EditUser from "./features/users/EditUser";
 import NewUserForm from "./features/users/NewUserForm";
 import EditNote from "./features/notes/EditNote";
 import NewNote from "./features/notes/NewNote";
+import Prefetch from "./features/auth/Prefetch";
 
 function App() {
   return (
@@ -21,25 +22,27 @@ function App() {
         {/* end public routes */}
 
         {/* protected routes */}
-        <Route path="dash" element={ <DashLayout /> } >
+        <Route element={<Prefetch />}>
+          <Route path="dash" element={ <DashLayout /> } >
 
-          <Route index element={ <Welcome/> } />
+            <Route index element={ <Welcome/> } />
 
-          {/* users routes */}
-          <Route path="users">
-            <Route index element={ <UsersList /> } />
-            <Route path=":id" element={ <EditUser /> } />
-            <Route path="new" element={ <NewUserForm /> } />
+            {/* users routes */}
+            <Route path="users">
+              <Route index element={ <UsersList /> } />
+              <Route path=":id" element={ <EditUser /> } />
+              <Route path="new" element={ <NewUserForm /> } />
+            </Route>
+
+
+            {/* notes routes */}
+            <Route path="notes">
+              <Route index element={ <NoteList /> } />
+              <Route path=":id" element={ <EditNote /> } />
+              <Route path="new" element={ <NewNote /> } />
+            </Route>
+
           </Route>
-
-
-          {/* notes routes */}
-          <Route path="notes">
-            <Route index element={ <NoteList /> } />
-            <Route path=":id" element={ <EditNote /> } />
-            <Route path="new" element={ <NewNote /> } />
-          </Route>
-
         </Route>
         {/* end protected routes */}
       </Route>
