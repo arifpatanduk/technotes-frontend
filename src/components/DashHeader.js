@@ -38,14 +38,14 @@ const DashHeader = () => {
 
   // define logout button
   const logoutButton = (
-    <button className='icon-button' title='Logout' onClick={sendLogout()}>
+    <button className='icon-button' title='Logout' onClick={sendLogout}>
       <FontAwesomeIcon icon={faRightFromBracket} />
     </button>
   )
 
   const content = (
     <header className='dash-header'>
-        <div className={`dash-header__containter ${dashClass}`}>
+        <div className={`dash-header__container ${dashClass}`}>
             <Link to="/dash">
                 <h1 className='dash-header__title'>techNotes</h1>
             </Link>
