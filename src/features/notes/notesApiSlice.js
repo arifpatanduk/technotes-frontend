@@ -12,7 +12,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
 
         // get all notes
         getNotes: builder.query({
-            query: () => '/api/notes',
+            query: () => '/notes',
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
@@ -39,7 +39,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
         // create new note
         addNewNote: builder.mutation({
             query: initialNote => ({
-                url: '/api/notes',
+                url: '/notes',
                 method: 'POST',
                 body: {
                     ...initialNote

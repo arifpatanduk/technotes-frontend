@@ -8,7 +8,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         // get all users
         getUsers: builder.query({
-            query: () => '/api/users',
+            query: () => '/users',
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
@@ -35,7 +35,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         // create new user
         addNewUser: builder.mutation({
             query: initialUserData => ({
-                url: '/api/users',
+                url: '/users',
                 method: 'POST',
                 body: {
                     ...initialUserData
